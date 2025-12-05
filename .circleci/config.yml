@@ -1,27 +1,19 @@
 version: 2.1
 
 orbs:
-  runbridge: shinobi/runbridge@dev:beta-four
+  sedstart: shinobi/cicd@dev:one
 
 jobs:
-  trigger-remote-run:
+  run-sedstart:
     docker:
-      - image: cimg/node:20.18.0
+      - image: cimg/base:stable
     steps:
-      - run:
-          name: "Debug: show env"
-          command: |
-            echo "Testing runbridge orb (dev)"
+      - checkout
+      - sedstart/runcloud:
+          base_url: "https://sedstart.sedinqa.com/api/"
+          api_key: SEDSTART_API_KEY   # env var set in CircleCI project
 
-      - runbridge/run-bridge:
-          api_key: SEDSTART_API_KEY_QA
-          project_id: "364"
-          test_id: "1629"
-          profile_id: "616"
-          browser: "chrome"
-          headless: true
-          environment: "QA"
 workflows:
-  run_tests:
+  main:
     jobs:
-      - trigger-remote-run
+      - run-sedstart
