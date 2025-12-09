@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Debug: show env"
           command: |
-          echo "Testing sedstart-shinobi orb (dev)"
+            echo "Testing sedstart-shinobi orb (dev)"
 
       - sedstart/runcloud:
           api_key: SEDSTART_API_KEY
