@@ -6,17 +6,15 @@ orbs:
 jobs:
   run-sedstart-cloud:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:20.18.0
     steps:
-      - checkout
       - run:
-          name: Install Xvfb
+          name: "Debug: show env"
           command: |
-            sudo apt-get update
-            sudo apt-get install -y xvfb
+          echo "Testing sedstart-shinobi orb (dev)"
 
       - sedstart/runcloud:
-          api_key: SEDSTART_API_KEY   # env var set in CircleCI project
+          api_key: SEDSTART_API_KEY
           project_id: 364
           test_id: 1629
           profile_id: 616
@@ -34,7 +32,7 @@ jobs:
             sudo apt-get install -y xvfb
 
       - sedstart/runlocal:
-          api_key: SEDSTART_API_KEY   # env var set in CircleCI project
+          api_key: SEDSTART_API_KEY 
           project_id: 364
           test_id: 1629
           profile_id: 616
