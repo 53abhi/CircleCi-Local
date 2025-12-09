@@ -4,7 +4,7 @@ orbs:
   sedstart: shinobi/cicd@dev:one
 
 jobs:
-  run-sedstart:
+  run-sedstart-cloud:
     docker:
       - image: cimg/base:stable
     steps:
@@ -22,8 +22,26 @@ jobs:
           profile_id: 616
           browser: "chrome"
           environment: "QA"
+  run-sedstart-local:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Install Xvfb
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y xvfb
+
+      - sedstart/runlocal:
+          api_key: SEDSTART_API_KEY   # env var set in CircleCI project
+          project_id: 364
+          test_id: 1629
+          profile_id: 616
+          browser: "chrome"
+          environment: "QA"
 
 workflows:
   main:
     jobs:
-      - run-sedstart
+      - run-sedstart-local
