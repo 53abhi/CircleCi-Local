@@ -42,4 +42,4 @@ jobs:
 workflows:
   main:
     jobs:
-      - run-sedstart-local
+      - run-sedstart-cloud
