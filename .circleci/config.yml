@@ -29,13 +29,14 @@ jobs:
           name: Install Xvfb
           command: |
             sudo apt-get update
-            npx --yes playwright@1.57.0 install --with-deps
+            npx --yes install --with-deps
 
       - sedstart/runlocal:
           api_key: SEDSTART_API_KEY 
           project_id: 364
           test_id: 1629
           profile_id: 616
+          browser: "safari"
           environment: "QA"
 
 workflows:
