@@ -22,7 +22,7 @@ jobs:
           environment: "QA"
   run-sedstart-local:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:20.18.0
     steps:
       - checkout
       - run:
