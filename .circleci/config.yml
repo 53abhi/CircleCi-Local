@@ -38,16 +38,16 @@ jobs:
           profile_id: 616
           environment: "QA"
   run-sedstart-local-windows:
-  machine:
-    image: windows-server-2022-gui:current
-  steps:
-    - checkout
-    - sedstart/runlocal-windows:
-        api_key: SEDSTART_API_KEY
-        project_id: 364
-        test_id: 1629
-        profile_id: 616
-        environment: "QA"
+    machine:
+      image: windows-server-2022-gui:current
+    steps:
+      - checkout
+      - sedstart/runlocal-windows:
+          api_key: SEDSTART_API_KEY
+          project_id: 364
+          test_id: 1629
+          profile_id: 616
+          environment: "QA"
 
 workflows:
   main:
