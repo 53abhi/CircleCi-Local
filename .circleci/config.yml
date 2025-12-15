@@ -29,7 +29,7 @@ jobs:
           name: Install Xvfb
           command: |
             sudo apt-get update
-            npx --yes install --with-deps
+            npx --yes install playwright --with-deps
 
       - sedstart/runlocal:
           api_key: SEDSTART_API_KEY 
