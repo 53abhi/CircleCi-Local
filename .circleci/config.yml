@@ -31,7 +31,7 @@ jobs:
             sudo apt-get update
             npx --yes --package=playwright@1.57.0 playwright install --with-deps
 
-      - sedstart/runlocal-linux:
+      - sedstart/runlocal:
           api_key: SEDSTART_API_KEY 
           project_id: 364
           test_id: 1629
@@ -44,7 +44,7 @@ jobs:
       shell: "powershell.exe -ExecutionPolicy Bypass"
     steps:
       - checkout
-      - sedstart/runlocal-windows:
+      - sedstart/runlocal:
           api_key: SEDSTART_API_KEY
           project_id: 364
           test_id: 1629
@@ -57,7 +57,7 @@ jobs:
       resource_class: 'm4pro.medium'
     steps:
       - checkout
-      - sedstart/runlocal-mac:
+      - sedstart/runlocal:
           api_key: SEDSTART_API_KEY
           project_id: 364
           test_id: 1629
