@@ -62,7 +62,6 @@ jobs:
           test_id: 1629
           profile_id: 616
           environment: "QA"
-          browser: "webkit"
 
 workflows:
   main:
