@@ -29,6 +29,7 @@ jobs:
           name: "Install Playwright"
           command: |
             sudo apt-get update
+            sudo apt-get install -y xvfb
 
       - sedstart/runlocal:
           api_key: SEDSTART_API_KEY 
