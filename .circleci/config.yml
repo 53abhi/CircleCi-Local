@@ -12,7 +12,7 @@ jobs:
           name: "Debug: show env"
           command: |
             echo "Testing sedstart-shinobi orb (dev)"
-      - sedstart/runcloud:
+      - cicd/runlocal:
           api_key: SEDSTART_API_KEY
           project_id: 364
           test_id: 1629
@@ -29,7 +29,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y xvfb
-      - sedstart/runlocal:
+      - cicd/runlocal:
           api_key: SEDSTART_API_KEY 
           project_id: 418
           test_id: 1937
@@ -44,7 +44,7 @@ jobs:
       shell: "powershell.exe -ExecutionPolicy Bypass"
     steps:
       - checkout
-      - sedstart/runlocal:
+      - cicd/runlocal:
           api_key: SEDSTART_API_KEY
           project_id: 364
           test_id: 1629
@@ -58,7 +58,7 @@ jobs:
       resource_class: 'm4pro.medium'
     steps:
       - checkout
-      - sedstart/runlocal:
+      - cicd/runlocal:
           api_key: SEDSTART_API_KEY
           project_id: 364
           test_id: 1629
@@ -69,4 +69,4 @@ jobs:
 workflows:
   main:
     jobs:
-      -run-sedstart-local-linux
+      - run-sedstart-local-linux
