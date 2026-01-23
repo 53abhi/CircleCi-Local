@@ -13,11 +13,10 @@ jobs:
           command: |
             echo "Testing sedstart-shinobi orb (dev)"
       - cicd/runlocal:
-          api_key: SEDSTART_API_KEY
-          project_id: 364
-          test_id: 1629
-          profile_id: 616
-          environment: "QA"
+          api_key: ${{ secrets.SEDSTART_API_KEY }}
+          project_id: 612
+          test_id: 4880
+          profile_id: 1017
           
   run-sedstart-local-linux:
     docker:
@@ -31,11 +30,10 @@ jobs:
             sudo apt-get install -y xvfb
       - cicd/runlocal:
           api_key: SEDSTART_API_KEY 
-          project_id: 418
-          suite_id: 387
-          profile_id: 848
+          project_id: 612
+          test_id: 4880
+          profile_id: 1017
           browser: chrome
-          environment: "QA"
           
   run-sedstart-local-windows:
     resource_class: 'windows.medium'
@@ -69,4 +67,4 @@ jobs:
 workflows:
   main:
     jobs:
-      - run-sedstart-local-windows
+      - run-sedstart-local-linux
